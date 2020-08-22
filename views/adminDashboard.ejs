@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Admin Desktop App</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <a href="notification.html"> <input type="button" type="submit" name="Login"
+                            class="login login-submit" value="Notification"></a>
+                    <a href="login.html"> <input type="button" type="submit" name="Login" class="login login-submit"
+                            value="Sign Out"></a>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                <h1>Contact Management</h1>
+
+                <h2>Select User</h2>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Option 1</th>
+                                <th>Option 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% users.forEach( user => { %>
+                            <tr>
+                                <td><%= user.firstName %> </td>
+                                <td><%= user.lastName %> </td>
+                                <td>
+                                    <form action="/users/delete/<%=user.firstName%>" method="POST">
+                                        <button type="submit">Remove</button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <% if(user.isBlocked){%>
+                                    <form action="/users/unblock/<%=user.firstName%>" method="POST">
+                                        <button type="submit">Unblock</button>
+                                    </form>
+                                    <% } else { %><form action="/users/block/<%=user.firstName%>" method="POST">
+                                        <button type="submit">Block</button>
+                                    </form>
+                                    <% }  %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
