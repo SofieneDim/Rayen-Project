@@ -3,14 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css" />
     <title>Admin Domo Register</title>
-    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 </head>
 
 <body>
     <div class="login-card">
         <h1>Admin Domo Register</h1><br>
-        <form action="/signup" method="POST">
+        <form action="/auth/signup" method="POST">
             <input type="text" name="firstName" placeholder="Username">
             <input type="text" name="lastName" placeholder="Last Name">
             <input type="password" name="password" placeholder="Password">
