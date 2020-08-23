@@ -8,7 +8,6 @@ router.post("/delete/:firstName", async (req, res) => {
         await User.findOneAndDelete({ firstName: req.params.firstName });
         res.redirect("/admin-dashboard");
     } catch (error) {
-        console.log('error:', error)
         res.status(400).json({ error: error.message });
     };
 });

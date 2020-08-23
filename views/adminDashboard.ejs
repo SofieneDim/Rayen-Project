@@ -64,7 +64,7 @@
                         <tbody>
                             <% users.forEach( user => { %>
                             <tr>
-                                <td><%= user.firstName %> </td>
+                                <td> <%= user.firstName %> </td>
                                 <td><%= user.lastName %> </td>
                                 <td>
                                     <form action="/users/delete/<%=user.firstName%>" method="POST">
